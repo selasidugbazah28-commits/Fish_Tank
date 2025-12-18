@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class nemo {
+public class Bascu {
     String name;
     Image image;
     int xpos;
@@ -12,11 +12,11 @@ public class nemo {
     int height;
     Rectangle hitbox;
 
-    public nemo(){
+    public Bascu(){
         hitbox = new Rectangle(xpos, ypos, width, height); // convention of making a rectangle
     }
 
-    public nemo(int xposInput, int yposInput, double dxInput, double dyInput, int widthInput, int heightInput){
+    public Bascu(int xposInput, int yposInput, double dxInput, double dyInput, int widthInput, int heightInput){
         xpos = xposInput;
         ypos = yposInput;
         dx = dxInput;
