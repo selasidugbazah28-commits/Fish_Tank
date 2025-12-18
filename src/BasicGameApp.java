@@ -42,7 +42,8 @@ public class BasicGameApp implements Runnable, KeyListener {
         bascu.image = Toolkit.getDefaultToolkit().getImage("Bascu.png");
 
         nemo = new Nemo(220,670,4,4,80,70);
-        nemo.image = Toolkit.getDefaultToolkit().getImage("Nemo.png");
+        nemo.aliveimage = Toolkit.getDefaultToolkit().getImage("Nemo.png");
+        nemo.deadimage = Toolkit.getDefaultToolkit().getImage("dead.png");
 
         background = Toolkit.getDefaultToolkit().getImage("aquarium.png");
 
@@ -75,6 +76,17 @@ public class BasicGameApp implements Runnable, KeyListener {
         else {
             kyogre.isAlive = true;
         }
+        if (nemo.hitbox.intersects(bascu.hitbox) ){
+            // System.out.println("You got hit with Shadow Sneak!");
+            nemo.isAlive = false;
+            nemo.dx = -nemo.dx;
+            bascu.dx = -nemo.dx;
+            bascu.dy = -nemo.dy;
+
+        }
+        else {
+            nemo.isAlive = true;
+        }
 
     }
 
@@ -93,7 +105,12 @@ public class BasicGameApp implements Runnable, KeyListener {
             g.drawImage(kyogre.deadimage,kyogre.xpos, kyogre.ypos, kyogre.width, kyogre.height, null );
         }
         g.drawImage(bascu.image, bascu.xpos, bascu.ypos, bascu.width, bascu.height, null);
-        g.drawImage(nemo.image, nemo.xpos, nemo.ypos, nemo.width, nemo.height, null);
+        if (nemo.isAlive) {
+            g.drawImage(nemo.aliveimage, nemo.xpos, nemo.ypos, nemo.width, nemo.height, null);
+        }
+        else {
+            g.drawImage(nemo.deadimage,nemo.xpos, nemo.ypos, nemo.width, nemo.height, null );
+        }
 
 
 

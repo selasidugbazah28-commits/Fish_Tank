@@ -2,7 +2,8 @@ import java.awt.*;
 
 public class Nemo {
     String name;
-    Image image;
+    Image aliveimage;
+    Image deadimage;
     int xpos;
     int ypos;
     int speed;
@@ -11,6 +12,7 @@ public class Nemo {
     int width;
     int height;
     Rectangle hitbox;
+    boolean isAlive = true;
 
     public Nemo(){
         hitbox = new Rectangle(xpos, ypos, width, height); // convention of making a rectangle
